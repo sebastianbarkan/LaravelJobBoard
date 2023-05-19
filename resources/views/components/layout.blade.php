@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       
         <link rel="icon" href="images/favicon.ico" />
         <link
             rel="stylesheet"
@@ -12,6 +13,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <script src="//unpkg.com/alpinejs" defer></script>
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
