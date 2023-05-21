@@ -62,8 +62,8 @@
         @foreach($reviews as $review)
             <div class="flex flex-col items-center">
                 <p>{{$review->review}}</p>
-                <p>{{$review->created_at}}</p>
-                <p>{{$review->user_id}}</p>
+                <p>{{$review->created_at->diffForHumans()}}</p>
+                <p>{{$review->name}}</p>
             </div>
         @endforeach 
    </div>

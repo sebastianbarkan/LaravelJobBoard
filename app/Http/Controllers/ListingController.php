@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Review;
 use App\Models\Listing;
 use Illuminate\Http\Request;
@@ -17,10 +18,10 @@ class ListingController extends Controller
     }
 
     //Show single listing
-    public function show(Listing $listing, Review $review) {
+    public function show(Listing $listing, Review $review, User $user) {
         return view("listings.show", [
             "listing" => $listing,
-            "reviews" => Review::latest()->where("listing_id", $listing->id)->paginate(4),
+            "reviews" => Review::latest()->where("listing_id", $listing->id)->paginate(6),
         ]);
     }
 

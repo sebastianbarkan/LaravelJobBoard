@@ -11,12 +11,14 @@ class ReviewController extends Controller
 {
     //Create Review
     public function create(Review $review, Listing $listing, User $user, Request $request) {
+        
         $formFields = $request->validate([
             "review" => 'required',
         ]);
 
         $formFields["user_id"] = auth()->id();
         $formFields["listing_id"] = auth()->id();
+        $formFields["name"] = auth()->user()->name;
 
         Review::create($formFields);
 
