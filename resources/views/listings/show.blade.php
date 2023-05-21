@@ -47,11 +47,12 @@
         </div>
     </div>
  </x-card>
- {{-- <x-card class="mt-4 p-2 flex space-x-6">
-    <a href="/listings/{{$listing->id}}/edit">
-        <i class="fa-solid fa-pencil"></i> Edit
-    </a> 
-
+ <x-card class="flex flex-col items-center justify-center text-center">
+   <h2 class="text-center text-2xl font-bold">Reviews</h2>
+   <div>
+        {{-- @foreach()
+        @endforeach --}}
+   </div>
     <form method="POST" action="/listings/{{$listing->id}}}">
         @csrf
         @method("DELETE")
@@ -59,7 +60,7 @@
             <i class="fa-solid fa-trash"></i> Delete
         </button>
     </form> 
-</x-card>--}}
+</x-card>
 </div>
 
 </x-layout>
