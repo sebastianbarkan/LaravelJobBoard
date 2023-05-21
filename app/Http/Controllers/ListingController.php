@@ -20,7 +20,7 @@ class ListingController extends Controller
     public function show(Listing $listing, Review $review) {
         return view("listings.show", [
             "listing" => $listing,
-            "reviews" => Review::latest()->paginate(4),
+            "reviews" => Review::latest()->where("listing_id", $listing->id)->paginate(4),
         ]);
     }
 
