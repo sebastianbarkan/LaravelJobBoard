@@ -51,14 +51,14 @@
    <h2 class="text-center text-2xl font-bold">Reviews</h2>
     <form method="POST" action="/reviews/{{$listing->id}}" class="flex flex-col items-center gap-y-2">
             @csrf
-            <textarea class="border border-gray-500 p-4" name="review"></textarea>
+            <textarea class="border border-gray-500 p-4" name="review" placeholder="Leave a review..."></textarea>
             @error("review")
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
             <button type="submit" class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Leave Review</button>
     </form>
    
-   <div class="flex flex-col items-center gap-y-4 ">
+   <div class="flex flex-col items-center gap-y-4 mt-4">
         @foreach($reviews as $review)
             <div class="flex flex-col items-center bg-white p-4 border border-gray-500 rounded">
                 <p class="text-center font-bold">{{$review->review}}</p>
