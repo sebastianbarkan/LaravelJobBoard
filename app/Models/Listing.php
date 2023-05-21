@@ -29,5 +29,9 @@ class Listing extends Model
         return $this->belongsTo(User::class, "user_id");
     } 
 
+    //Relationship to review
+    public function review() {
+        return $this->belongsTo(Review::class, "listing_id");
+    }
     
 }

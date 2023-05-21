@@ -47,19 +47,26 @@
         </div>
     </div>
  </x-card>
- <x-card class="flex flex-col items-center justify-center text-center">
+ <x-card class="flex flex-col items-center justify-center text-center gap-y-4">
    <h2 class="text-center text-2xl font-bold">Reviews</h2>
-   <div>
-        {{-- @foreach()
-        @endforeach --}}
+    <form method="POST" action="/reviews/{{$listing->id}}" class="flex flex-col items-center gap-y-2">
+            @csrf
+            <textarea class="border border-gray-500 p-4" name="review"></textarea>
+            @error("review")
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+            @enderror
+            <button type="submit" class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Leave Review</button>
+    </form>
+   
+   <div class="flex flex-col items-center">
+        @foreach($reviews as $review)
+            <div class="flex flex-col items-center">
+                <p>{{$review->review}}</p>
+                <p>{{$review->created_at}}</p>
+                <p>{{$review->user_id}}</p>
+            </div>
+        @endforeach 
    </div>
-    <form method="POST" action="/listings/{{$listing->id}}}">
-        @csrf
-        @method("DELETE")
-        <button class="text-red-500">
-            <i class="fa-solid fa-trash"></i> Delete
-        </button>
-    </form> 
 </x-card>
 </div>
 

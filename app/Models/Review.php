@@ -10,9 +10,14 @@ class Review extends Model
 {
     use HasFactory;
 
-
+    protected $fillable = ['user_id', 'listing_id'];
     //Relationship to user
     public function user() {
         return $this->belongsTo(User::class, "user_id");
     } 
+
+    //Relationship to listing
+    public function listing() {
+        return $this->belongsTo(Listing::class, "listing_id");
+    }
 }
