@@ -58,14 +58,17 @@
             <button type="submit" class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Leave Review</button>
     </form>
    
-   <div class="flex flex-col items-center">
+   <div class="flex flex-col items-center gap-y-4 ">
         @foreach($reviews as $review)
-            <div class="flex flex-col items-center">
-                <p>{{$review->review}}</p>
-                <p>{{$review->created_at->diffForHumans()}}</p>
+            <div class="flex flex-col items-center bg-white p-4 border border-gray-500 rounded">
+                <p class="text-center font-bold">{{$review->review}}</p>
+                <p class="italic">{{$review->created_at->diffForHumans()}}</p>
                 <p>{{$review->name}}</p>
             </div>
         @endforeach 
+   </div>
+   <div>
+    {{$reviews->links()}}
    </div>
 </x-card>
 </div>
