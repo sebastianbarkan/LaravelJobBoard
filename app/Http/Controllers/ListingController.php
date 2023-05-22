@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\Listing;
+use App\Models\Application;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -109,21 +110,21 @@ class ListingController extends Controller
         }
 
         //Apply to Listing
-        public function apply() {
+        public function apply(Request $request, Listing $listing) {
             $formFields = $request->validate([
                 "name" => 'required',
-                'resume' => ["required"],
             ]);
     
             if($request->hasFile("resume")) {
                 $formFields['resume'] = $request->file('resume')->store("resumes", "public");
+
             }
     
-            $listing->update($formFields);
-    
-            $formFields["user_id"] = auth()->id();
-            $formFields["listing_id"] = auth()->id();
+
             
+            $formFields["user_id"] = auth()->id();
+            $formFields["listing_id"] = $listing->id;
+
             Application::create($formFields);
 
             return back()->with('message', 'Applied Successfully!');

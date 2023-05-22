@@ -28,10 +28,10 @@ Route::get('/listings/create', [ListingController::class, 'create'])->middleware
 Route::post('/listings', [ListingController::class, "store"])->middleware("auth");
 
 //Add listing review 
-Route::post('/reviews/{listing}', [ListingController::class, "apply"])->middleware("auth");
+Route::post('/reviews/{listing}', [ReviewController::class, "create"])->middleware("auth");
 
 //Apply to listing
-Route::post('/listings/{listing}/apply', [ReviewController::class, "create"])->middleware("auth");
+Route::post('/listings/{listing}/apply', [ListingController::class, "apply"])->middleware("auth");
 
 //Show edit form
 Route::get('/listings/{listing}/edit', [ListingController::class, "edit"])->middleware("auth");

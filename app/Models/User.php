@@ -52,4 +52,9 @@ class User extends Authenticatable
     public function reviews() {
         return $this->hasMany(Review::class, "user_id");
     }
+
+    //Relationship to applications
+    public function applications() {
+        return $this->hasMany(Applications::class, "user_id");
+    }
 }

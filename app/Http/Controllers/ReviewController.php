@@ -17,7 +17,7 @@ class ReviewController extends Controller
         ]);
 
         $formFields["user_id"] = auth()->id();
-        $formFields["listing_id"] = auth()->id();
+        $formFields["listing_id"] = $listing->id;
         $formFields["name"] = auth()->user()->name;
 
         Review::create($formFields);

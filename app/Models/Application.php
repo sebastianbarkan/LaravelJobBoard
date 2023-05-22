@@ -11,8 +11,8 @@ class Application extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'listing_id'];
-
+    protected $fillable = ['user_id', 'listing_id', 'comments'];
+    public $timestamps = false;
     //Relationship to user
     public function user() {
         return $this->belongsTo(User::class, "user_id");
@@ -20,6 +20,6 @@ class Application extends Model
     
     //Relationship to listing
     public function listing() {
-        return $this->belongsTo(Listing::class, "listing_id")
+        return $this->belongsTo(Listing::class, "listing_id");
     }
 }

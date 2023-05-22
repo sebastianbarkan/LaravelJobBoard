@@ -30,7 +30,6 @@
             <div class="text-lg space-y-6">
                {{$listing->description}}
                 <a
-                <a
                     href="mailto:{{$listing->email}}"
                     class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
                     ><i class="fa-solid fa-envelope"></i>
@@ -51,7 +50,7 @@
                 Apply Now!
             </h3>
             <div class="text-lg space-y-6">
-              <form action="/listings/{id}/apply" method="POST">
+              <form action="/listings/{{$listing->id}}/apply" method="POST" class="flex flex-col items-center">
                 @csrf
                 <div class="mb-6">
                     <label
@@ -103,7 +102,11 @@
                 </div>
                 
             
-
+                <button
+                    type="submit"
+                    class="block bg-laravel text-white mt-6 py-2 px-4 rounded-xl hover:opacity-80 font-semibold text-2xl">
+                     Submit Application!
+                </button>
               </form>
             </div>
         </div>

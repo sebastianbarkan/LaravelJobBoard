@@ -37,6 +37,6 @@ class Listing extends Model
     
     //Relationship to application
     public function application(){
-        return $this->belongsTo(Application::class, "application_id")
+        return $this->belongsTo(Application::class, "application_id");
     }
 }
