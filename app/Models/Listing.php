@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Application;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Listing extends Model
 {
@@ -34,4 +35,8 @@ class Listing extends Model
         return $this->belongsTo(Review::class, "listing_id");
     }
     
+    //Relationship to application
+    public function application(){
+        return $this->belongsTo(Application::class, "application_id")
+    }
 }

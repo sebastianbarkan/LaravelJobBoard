@@ -29,7 +29,7 @@
             </h3>
             <div class="text-lg space-y-6">
                {{$listing->description}}
-
+                <a
                 <a
                     href="mailto:{{$listing->email}}"
                     class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
@@ -45,8 +45,71 @@
                 >
             </div>
         </div>
+           <div class="border border-gray-200 w-full mb-6 mt-6"></div>
+        <div>
+            <h3 class="text-3xl font-bold mb-4">
+                Apply Now!
+            </h3>
+            <div class="text-lg space-y-6">
+              <form action="/listings/{id}/apply" method="POST">
+                @csrf
+                <div class="mb-6">
+                    <label
+                        for="name"
+                        class="inline-block text-lg mb-2"
+                    >
+                        What's your name?
+                    </label>
+                    <input
+                        class="border border-gray-200 rounded p-2 w-full"
+                        name="name"
+                        placeholder="Enter your full name..."
+                        type="text"
+                    >
+                    {{old("name")}}
+                    @error("name")
+                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @enderror
+                </div>
+                <div class="mb-6">
+                    <label for="resume" class="inline-block text-lg mb-2">
+                        Resume
+                    </label>
+                    <input
+                        type="file"
+                        class="border border-gray-200 rounded p-2 w-full"
+                        name="resume"
+                    />
+                    @error("resume")
+                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @enderror
+                </div>
+                <div class="mb-6">
+                    <label
+                        for="comments"
+                        class="inline-block text-lg mb-2"
+                    >
+                        Is there anything else you'd like to tell us?
+                    </label>
+                    <textarea
+                        class="border border-gray-200 rounded p-2 w-full text"
+                        name="comments"
+                        rows="8"
+                        placeholder="Describe what makes you stand out..."
+                    ></textarea>
+                    @error("comments")
+                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @enderror
+                </div>
+                
+            
+
+              </form>
+            </div>
+        </div>
     </div>
  </x-card>
+  <div class="border border-gray-200 w-full mb-6"></div>
  <x-card class="flex flex-col items-center justify-center text-center gap-y-4">
    <h2 class="text-center text-2xl font-bold">Reviews</h2>
     <form method="POST" action="/reviews/{{$listing->id}}" class="flex flex-col items-center gap-y-2">

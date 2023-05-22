@@ -108,4 +108,26 @@ class ListingController extends Controller
             return view("listings.manage", ["listings" => auth()->user()->listings()->get()]);
         }
 
+        //Apply to Listing
+        public function apply() {
+            $formFields = $request->validate([
+                "name" => 'required',
+                'resume' => ["required"],
+            ]);
+    
+            if($request->hasFile("resume")) {
+                $formFields['resume'] = $request->file('resume')->store("resumes", "public");
+            }
+    
+            $listing->update($formFields);
+    
+            $formFields["user_id"] = auth()->id();
+            $formFields["listing_id"] = auth()->id();
+            
+            Application::create($formFields);
+
+            return back()->with('message', 'Applied Successfully!');
+
+        }
+
 }
