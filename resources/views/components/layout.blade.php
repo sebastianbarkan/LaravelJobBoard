@@ -45,6 +45,12 @@
                     >
                 </li>
                 <li>
+                    <a href="/applications/manage" class="hover:text-laravel"
+                        ><i class="fa-solid fa-file"></i>
+                        Manage Applications</a
+                    >
+                </li>
+                <li>
                     <form class="inline" method="POST" action="/logout">
                         @csrf
                         <button type="submit">

@@ -70,4 +70,5 @@ Route::get("/listings/manage", [ListingController::class, "manage"]);
 Route::get('/listings/{listing}', [ListingController::class, "show"]);
 
 
-
+//Show Applications
+Route::get("/applications/manage", [ApplicationController::class, "manage"]);
