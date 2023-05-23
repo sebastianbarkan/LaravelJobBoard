@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Review;
+use App\Models\Application;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -55,6 +56,6 @@ class User extends Authenticatable
 
     //Relationship to applications
     public function applications() {
-        return $this->hasMany(Applications::class, "user_id");
+        return $this->hasMany(Application::class, "user_id");
     }
 }

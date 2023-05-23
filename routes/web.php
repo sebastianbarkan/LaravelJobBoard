@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ApplicationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,7 +68,7 @@ Route::post("/users/authenticate", [UserController::class, "authenticate"]);
 Route::get("/listings/manage", [ListingController::class, "manage"]);
 
 //Single Listing
-Route::get('/listings/{listing}', [ListingController::class, "show"]);
+Route::get('/listings/{listing}', [ListingController::class, "show"])->middleware("auth");
 
 
 //Show Applications
