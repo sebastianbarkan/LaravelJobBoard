@@ -17,8 +17,8 @@
                     <td
                         class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                     >
-                        <a href="/listings/{{$application->id}}">
-                            {{$application->title}}
+                        <a href="/listings/{{$application->listing_id}}">
+                            {{$application->company}}
                         </a>
                     </td>
                     <td

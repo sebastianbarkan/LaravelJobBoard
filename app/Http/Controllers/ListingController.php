@@ -121,7 +121,7 @@ class ListingController extends Controller
             }
     
 
-            
+            $formFields["company"] = $listing->title;        
             $formFields["user_id"] = auth()->id();
             $formFields["listing_id"] = $listing->id;
 
